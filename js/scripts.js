@@ -18,6 +18,11 @@ const modalOverlay = document.getElementById("modalOverlay");
 const openModalBtn = document.getElementById("openModal");
 const closeModalBtn = document.getElementById("closeModal");
 
+const contactModal = document.getElementById("contactModal");
+const openContactModal = document.getElementById("openContactModal");
+const closeContactModal = document.getElementById("closeContactModal");
+const contactForm = document.getElementById("contactForm");
+
 // FUNCTIONS
 function createProjectCard(project) {
   // card container
@@ -65,3 +70,57 @@ modalOverlay.addEventListener("click", (e) => {
     document.body.style.overflow = "auto";
   }
 });
+
+// contact
+openContactModal.onclick = () => (contactModal.style.display = "flex");
+closeContactModal.onclick = () => (contactModal.style.display = "none");
+
+// Click outside the modal box to close it
+window.onclick = (event) => {
+  if (event.target == contactModal) contactModal.style.display = "none";
+};
+
+// funcoes
+// 2. Envio do Formulário (Integração com e-mail)
+contactForm.onsubmit = async (e) => {
+  e.preventDefault();
+
+  // alterando nome no butao de send para sending...
+  const btnSubmit = contactForm.querySelector(".btn-send");
+  btnSubmit.innerText = "Sending...";
+  btnSubmit.disabled = true;
+
+  // recebendo dados do formulario
+  const formData = new FormData();
+  formData.append(
+    "name",
+    contactForm.querySelector('input[type="text"]').value
+  );
+  formData.append(
+    "email",
+    contactForm.querySelector('input[type="email"]').value
+  );
+  formData.append("message", contactForm.querySelector("textarea").value);
+
+  // eu usei o https://formsubmit.co/
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/your-email", {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      alert("Message sent successfully!");
+      contactForm.reset();
+      contactModal.style.display = "none";
+    } else {
+      alert("Oops! There was a problem.");
+    }
+  } catch (error) {
+    alert("Error connecting to the server.");
+  } finally {
+    btnSubmit.innerText = "Send Message";
+    btnSubmit.disabled = false;
+  }
+};
