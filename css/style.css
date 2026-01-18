@@ -391,26 +391,16 @@ header {
   color: var(--dark-blue);
 }
 
-@media (max-width: 480px) {
-  .modal-grid .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .project-card span {
-    font-size: 0.85rem;
-  }
-}
-
 /* CONTACT */
 .contact {
   color: var(--dark-blue);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   gap: 20px;
-
+  height: 40vh;
   margin: 30px 0;
   padding: 0 10px;
 }
@@ -505,6 +495,83 @@ header {
   background: #25d366;
 }
 
+/* footer */
+.main-footer {
+  background: var(--dark-blue);
+  color: var(--platinum);
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-about {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo {
+  max-width: 150px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 15px;
+}
+
+.footer-about p {
+  font-size: 1.25rem;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #0056b3;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  transition: 0.3s;
+}
+
+.footer-column a:hover {
+  color: var(--smoke-white);
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: var(--smoke-white);
+}
+
+@media (max-width: 480px) {
+  .modal-grid .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .project-card span {
+    font-size: 0.85rem;
+  }
+}
+
 @media (min-width: 768px) {
   .contact-modal-content {
     width: 80%;
@@ -513,6 +580,23 @@ header {
   .btn-send,
   .btn-whatsapp {
     flex: 1;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .footer-about {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
   }
 }
 
@@ -531,5 +615,13 @@ header {
   }
   .btn-whatsapp:hover {
     background: #1ebe57;
+  }
+
+  .main-footer {
+    padding: 60px 0 30px;
+  }
+
+  .footer-about {
+    flex: 2;
   }
 }
