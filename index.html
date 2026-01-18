@@ -28,8 +28,8 @@
           <h1>building reliable solutions</h1>
           <span>for modern construction needs</span>
           <div class="hero-buttons">
-            <a href="#">View Our Projects</a>
-            <a href="#">Contact Us</a>
+            <a href="#project">View Our Projects</a>
+            <a href="#contact">Contact Us</a>
           </div>
         </div>
         <div class="stats-bar">
@@ -190,18 +190,6 @@
         <div class="project-content">
           <h2>Featured Projects</h2>
           <div class="project-grid" id="mainProjectGrid">
-            <!-- <div class="project-card">
-              <img src="./images/img-01.jpg" alt="" />
-              <span>luxury apartment complex</span>
-            </div>
-            <div class="project-card">
-              <img src="./images/img-02.jpg" alt="" />
-              <span>corporate office tower</span>
-            </div>
-            <div class="project-card">
-              <img src="./images/img-03.jpg" alt="" />
-              <span>industrial facility</span>
-            </div> -->
             <div class="project-card project-card-button">
               <button class="project-button" id="openModal">
                 view all projects
@@ -216,6 +204,40 @@
           <button class="close-modal" id="closeModal">&times;</button>
           <h3>All Projects</h3>
           <div class="modal-grid" id="modalProjectGrid"></div>
+        </div>
+      </div>
+      <!-- contact -->
+      <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>
+          We would love to hear from you. Please fill out the form below or
+          contact us instantly via the WhatsApp button.
+        </p>
+
+        <button class="open-contact-modal" id="openContactModal">
+          Talk to us
+        </button>
+      </section>
+      <div class="contactModal" id="contactModal">
+        <div class="contact-modal-content">
+          <span class="close-contact-button">&times;</span>
+          <h2>Get in touch</h2>
+          <form id="contactForm">
+            <input type="text" placeholder="Name" required />
+            <input type="email" placeholder="E-mail" required />
+            <textarea placeholder="Your message" rows="4" required></textarea>
+
+            <div class="button-group">
+              <button type="submit" class="btn-send">Send Message</button>
+              <a
+                href="https://wa.me/seunumeroaqui"
+                class="btn-whatsapp"
+                target="_blank"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </form>
         </div>
       </div>
     </main>
